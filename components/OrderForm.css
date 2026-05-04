@@ -246,6 +246,7 @@ body {
     border: #a8a6a6 solid 1px;
     width: fit-content;
     height: fit-content;
+    border-radius: 8px;
 }
 
 .pizza-card-form-count-button {
@@ -256,6 +257,14 @@ body {
     color: #292929;
     font-size: 1.25rem;
     cursor: pointer;
+    border-radius: 8px;
+}
+.pizza-card-form-count-button:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
+.pizza-card-form-count-button:hover:not(:disabled) {
+    background-color: #f0c000;
 }
 
 .pizza-card-form-total-container {
@@ -303,6 +312,27 @@ body {
     padding: 0.75rem 9rem;
     cursor: pointer;
     width: cover;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.pizza-card-form-submit-button:hover {
+    background-color: #f0c000;
+}
+.order-success {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+    text-align: center;
+    background-color: #CE2829;
+    color: white;
+    padding: 9rem;
+    font-family: 'barlow', sans-serif;
+    
+}
+.order-success-title {
+    font-size: 5rem;
+    font-weight: 400;
 }
 
 @media (max-width: 900px) {

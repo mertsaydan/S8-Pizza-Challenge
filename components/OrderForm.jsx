@@ -7,6 +7,8 @@ import Header from './header';
 import PizzaCard from './PizzaCard';
 import { useState } from 'react';
 
+
+
 const extras = ["Pepperoni", "Tavuk Izgara", "Mısır", "Sarımsak", "Ananas",
     "Sosis", "Soğan", "Sucuk", "Biber", "Kabak", "Kanada Jambonu", "Domates", 
     "Jalapeño", "Zeytin"]
@@ -22,14 +24,11 @@ export default function OrderForm() {
     const calculateTotalPrice = (sizeVal, doughVal, extrasArr) => {
         let total = basePrice;
         
-        // Add size price
         if (sizeVal === "medium") total += 10;
         else if (sizeVal === "large") total += 20;
         
-        // Add dough price
         if (doughVal === "thick") total += 5;
-        
-        // Add extras price
+            
         total += extrasArr.length * 5;
         
         return total.toFixed(2);
@@ -58,7 +57,8 @@ export default function OrderForm() {
     return (
         <>
             <Header />
-            <PizzaCard extras={extras} pizzas={pizzas} totalPrice={totalPrice} handleChange={handleChange} size={size} dough={dough} selectedExtras={selectedExtras} />
+            <PizzaCard extras={extras} pizzas={pizzas} totalPrice={totalPrice} handleChange={handleChange} 
+            size={size} dough={dough} selectedExtras={selectedExtras} />
         </>
     )
 }

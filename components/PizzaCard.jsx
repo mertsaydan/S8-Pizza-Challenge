@@ -33,10 +33,8 @@ export default function PizzaCard({ extras, pizzas, totalPrice, handleChange, si
                                 <PizzaSize handleChange={handleChange} />
                                 <PizzaDough handleChange={handleChange} />
                             </div>
-                            <PizzaExtras extras={extras} handleChange={handleChange} />
-
+                        <PizzaExtras extras={extras} handleChange={handleChange} selectedExtras={selectedExtras} />
                             <PizzaNotes handleChange={handleChange} />
-
                             <PizzaFormSubmit totalPrice={totalPrice} handleChange={handleChange} size={size} dough={dough} selectedExtras={selectedExtras} />
                         </Form>
                     </div>

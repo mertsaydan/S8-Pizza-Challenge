@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Input, FormGroup, Label } from 'reactstrap';
 
 
-export default function PizzaExtras({ extras, handleChange }) {
+export default function PizzaExtras({ extras, handleChange, selectedExtras }) {
     return (
         <>
             <div className="pizza-card-form-checkbox-header">
@@ -13,7 +13,14 @@ export default function PizzaExtras({ extras, handleChange }) {
                 {extras.map((extra, index) => (
                     <FormGroup check key={index} className="pizza-card-form-checkbox">
                         <Label check>
-                            <Input type="checkbox" name="extra" id={`extra-${index}`} onChange={handleChange} />{" "}
+                            <Input
+                                type="checkbox"
+                                name="extra"
+                                id={`extra-${index}`}
+                                value={extra}
+                                checked={selectedExtras?.includes(extra)}
+                                onChange={handleChange}
+                            />{" "}
                             {extra}
                         </Label>
                     </FormGroup>
