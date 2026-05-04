@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+.order-form-header {
+    display: flex;
+    justify-content: center;
+    background-color: #CE2829;;
+    height: 9rem;
+}
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem;
+}
+.order-form-logo {
+    width: 20rem;
+    height: auto;   
+}
+.order-form-nav {
+    display: flex;
+    align-items: left;
+    gap: 0.5rem;
+    background-color: #CE2829;;
+    height: 3rem;
+} 
+.order-form-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-family: 'Barlow', sans-serif;
+}         
+.order-form-link-home {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: 'Barlow', sans-serif;
+}
+.order-form-link-home:hover {
+    color: black    ;
+    transition: color 0.3s ease;
+}
+.order-form-link:hover {
+    color: black    ;
+    transition: color 0.3s ease;
+}
