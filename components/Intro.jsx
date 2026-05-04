@@ -9,9 +9,10 @@ export default function Intro() {
   };
   return (
     <header className="intro">
-        <img className="logo" src={logo} alt="Logo" />
-        <h1 className="title">KOD ACIKTIRIR <br/>PİZZA, DOYURUR</h1>
-        <button className="button" onClick={handleClick}>Acıktım</button>
+      <img className="logo" src={logo} alt="Logo" />
+      <h1 className="title">KOD ACIKTIRIR <br />PİZZA, DOYURUR</h1>
+      <button className="button" onClick={handleClick}>Acıktım</button>
     </header>
-    
-    )}
+
+  )
+}
