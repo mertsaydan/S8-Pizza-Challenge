@@ -7,7 +7,8 @@ import axios from 'axios';
 const apiKey = import.meta.env.VITE_API_KEY;
 
 let buttonDisabled = false;
-export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtras, name, orderNote, errors, setErrors }) {
+export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtras, 
+    name, orderNote, errors, setErrors, pizzas }) {
     const [count, setCount] = useState(1);
     const history = useHistory();
 
@@ -65,7 +66,9 @@ export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtra
         try {
             const payload = {
                 isim: name,
+                pizza: pizzas[0].name,
                 boyut: size,
+                hamur: dough,
                 malzemeler: selectedExtras,
                 özel: orderNote,
                 quantity: count,
@@ -79,7 +82,7 @@ export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtra
             });
             console.log('Order submitted successfully:', response.data);
             console.log('Sent payload:', payload);
-            history.push('/order-success');
+            history.push('/order-success', { order: payload });
         } catch (error) {
             console.error('Error submitting order:', error);
         }

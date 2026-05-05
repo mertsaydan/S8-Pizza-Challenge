@@ -35,7 +35,7 @@ export default function PizzaCard({ extras, pizzas, totalPrice, handleChange, si
                             </div>
                         <PizzaExtras extras={extras} handleChange={handleChange} selectedExtras={selectedExtras} errors={errors} />
                             <PizzaNotes handleChange={handleChange} errors={errors} />
-                            <PizzaFormSubmit totalPrice={totalPrice} handleChange={handleChange} size={size} dough={dough} selectedExtras={selectedExtras} name={name} orderNote={orderNote} errors={errors} setErrors={setErrors} />
+                            <PizzaFormSubmit pizzas={pizzas} totalPrice={totalPrice} handleChange={handleChange} size={size} dough={dough} selectedExtras={selectedExtras} name={name} orderNote={orderNote} errors={errors} setErrors={setErrors} />
                         </Form>
                     </div>
                 </section>
