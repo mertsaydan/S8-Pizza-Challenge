@@ -315,7 +315,11 @@ body {
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
 }
-.pizza-card-form-submit-button:hover {
+.pizza-card-form-submit-button:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
+.pizza-card-form-submit-button:hover:not(:disabled) {
     background-color: #f0c000;
 }
 .order-success {

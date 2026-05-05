@@ -2,12 +2,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Input, FormGroup, Label } from 'reactstrap';
 
 
-export default function PizzaExtras({ extras, handleChange, selectedExtras }) {
+export default function PizzaExtras({ extras, handleChange, selectedExtras, errors }) {
     return (
         <>
             <div className="pizza-card-form-checkbox-header">
                 <h3>Ek Malzemeler</h3>
-                <p>En fazla 10 tane malzeme seçebilirsiniz. 5₺</p>
+                <p className={errors.extras ? "text-danger" : ""}>En fazla 10 tane malzeme seçebilirsiniz. 5₺</p>
+                
             </div>
             <div className="pizza-card-form-checkboxes">
                 {extras.map((extra, index) => (

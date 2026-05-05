@@ -16,9 +16,12 @@ const pizzas = [
     {name: "Position Absolute Acı Pizza", price: "85.50", rating: "4.9", ratingCount: "200"}
 ]
 export default function OrderForm() {
-    const [size, setSize] = useState("small");
-    const [dough, setDough] = useState("thin");
+    const [size, setSize] = useState("");
+    const [dough, setDough] = useState("");
     const [selectedExtras, setSelectedExtras] = useState([]);
+    const [name, setName] = useState("");
+    const [orderNote, setOrderNote] = useState("");
+    const [errors, setErrors] = useState({});
     const basePrice = parseFloat(pizzas[0].price);
     
     const calculateTotalPrice = (sizeVal, doughVal, extrasArr) => {
@@ -39,16 +42,27 @@ export default function OrderForm() {
         
         if (name === "size") {
             setSize(value);
+            setErrors(prev => ({ ...prev, size: undefined }));
         } else if (name === "dough") {
             setDough(value);
+            setErrors(prev => ({ ...prev, dough: undefined }));
         } else if (name === "extra") {
-            let newExtras;
             if (checked) {
-                newExtras = [...selectedExtras, value];
+                if (selectedExtras.length < 10) {
+                    setSelectedExtras([...selectedExtras, value]);
+                    setErrors(prev => ({ ...prev, extras: undefined }));
+                } else {
+                    setErrors(prev => ({ ...prev, extras: "En fazla 10 ek malzeme seçebilirsiniz." }));
+                }
             } else {
-                newExtras = selectedExtras.filter(extra => extra !== value);
+                setSelectedExtras(selectedExtras.filter(extra => extra !== value));
+                setErrors(prev => ({ ...prev, extras: undefined }));
             }
-            setSelectedExtras(newExtras);
+        } else if (name === "name") {
+            setName(value);
+            setErrors(prev => ({ ...prev, name: undefined }));
+        } else if (name === "orderNote") {
+            setOrderNote(value);
         }
     };
     
@@ -58,7 +72,7 @@ export default function OrderForm() {
         <>
             <Header />
             <PizzaCard extras={extras} pizzas={pizzas} totalPrice={totalPrice} handleChange={handleChange} 
-            size={size} dough={dough} selectedExtras={selectedExtras} />
+            size={size} dough={dough} selectedExtras={selectedExtras} name={name} orderNote={orderNote} errors={errors} setErrors={setErrors} />
         </>
     )
 }

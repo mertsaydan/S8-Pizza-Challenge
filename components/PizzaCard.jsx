@@ -7,7 +7,7 @@ import PizzaNotes from './PizzaNotes';
 import PizzaFormSubmit from './PizzaFormSubmit';
 
 
-export default function PizzaCard({ extras, pizzas, totalPrice, handleChange, size, dough, selectedExtras }) {
+export default function PizzaCard({ extras, pizzas, totalPrice, handleChange, size, dough, selectedExtras, name, orderNote, errors, setErrors }) {
     return (
         <>
             <main className="order-form-main">
@@ -30,12 +30,12 @@ export default function PizzaCard({ extras, pizzas, totalPrice, handleChange, si
                     <div className="pizza-card-form">
                         <Form>
                             <div className="pizza-card-form-top">
-                                <PizzaSize handleChange={handleChange} />
-                                <PizzaDough handleChange={handleChange} />
+                                <PizzaSize handleChange={handleChange} size={size} errors={errors} />
+                                <PizzaDough handleChange={handleChange} dough={dough} errors={errors} />
                             </div>
-                        <PizzaExtras extras={extras} handleChange={handleChange} selectedExtras={selectedExtras} />
-                            <PizzaNotes handleChange={handleChange} />
-                            <PizzaFormSubmit totalPrice={totalPrice} handleChange={handleChange} size={size} dough={dough} selectedExtras={selectedExtras} />
+                        <PizzaExtras extras={extras} handleChange={handleChange} selectedExtras={selectedExtras} errors={errors} />
+                            <PizzaNotes handleChange={handleChange} errors={errors} />
+                            <PizzaFormSubmit totalPrice={totalPrice} handleChange={handleChange} size={size} dough={dough} selectedExtras={selectedExtras} name={name} orderNote={orderNote} errors={errors} setErrors={setErrors} />
                         </Form>
                     </div>
                 </section>

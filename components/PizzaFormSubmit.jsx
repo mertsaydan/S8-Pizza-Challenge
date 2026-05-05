@@ -7,7 +7,7 @@ import axios from 'axios';
 const apiKey = import.meta.env.VITE_API_KEY;
 
 let buttonDisabled = false;
-export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtras }) {
+export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtras, name, orderNote, errors, setErrors }) {
     const [count, setCount] = useState(1);
     const history = useHistory();
 
@@ -23,11 +23,10 @@ export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtra
 
         return total.toFixed(2);
     };
-    if (count <= 1) {
-        buttonDisabled = true;
-    } else {
-        buttonDisabled = false;
-    }
+
+    const isSubmitDisabled = !name || name.length < 3 || selectedExtras.length > 10 || !size || !dough;
+    const isDecrementDisabled = count <= 1;
+
     const handleIncrement = (e) => {
         e.preventDefault();
         setCount(count + 1);
@@ -42,19 +41,44 @@ export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtra
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+       
+        const newErrors = {};
+        if (!name || name.length < 3) {
+            newErrors.name = "İsim en az 3 karakter olmalıdır.";
+        }
+        if (selectedExtras.length > 10) {
+            newErrors.extras = "En fazla 10 ek malzeme seçebilirsiniz.";
+        }
+        if (!size) {
+            newErrors.size = "Boyut seçmelisiniz.";
+        }
+        if (!dough) {
+            newErrors.dough = "Hamur seçmelisiniz.";
+        }
+
+        setErrors(newErrors);
+
+        if (Object.keys(newErrors).length > 0) {
+            return;
+        }
+
         try {
-            const response = await axios.post('https://reqres.in/api/users', {
-                size,
-                dough,
-                extras: selectedExtras,
+            const payload = {
+                isim: name,
+                boyut: size,
+                malzemeler: selectedExtras,
+                özel: orderNote,
                 quantity: count,
                 totalPrice: (parseFloat(totalPrice) * count).toFixed(2)
-            }, {
+            };
+
+            const response = await axios.post('https://reqres.in/api/users', payload, {
                 headers: {
                     'x-api-key': apiKey
                 }
             });
             console.log('Order submitted successfully:', response.data);
+            console.log('Sent payload:', payload);
             history.push('/order-success');
         } catch (error) {
             console.error('Error submitting order:', error);
@@ -66,7 +90,7 @@ export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtra
         <div className="pizza-card-form-bottom">
             <div className="pizza-card-form-count">
                 <button className="pizza-card-form-count-button" onClick={handleDecrement}
-                disabled={buttonDisabled}>
+                disabled={isDecrementDisabled}>
                     -
                 </button>
                 <span className="pizza-card-form-count-value">{count}</span>
@@ -82,7 +106,7 @@ export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtra
                         <p>Toplam </p><span>{finalTotal} ₺</span>
                     </div>
                 </div>
-                <button className="pizza-card-form-submit-button" onClick={handleSubmit}>
+                <button className="pizza-card-form-submit-button" onClick={handleSubmit} disabled={isSubmitDisabled}>
                     Siparişi Tamamla
                 </button>
             </div>
