@@ -345,8 +345,66 @@ body {
    border-radius: 16px;
    box-shadow: 0 26px 80px rgba(0, 0, 0, 0.50);
    margin-top: 2rem;
+   max-width: 800px;
+   align-self: center;
 }
-
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #292929;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    background-color: white;
+    transition: all 0.2s ease;
+}
+input[type="checkbox"]:hover {
+    border-color: #CE2829;
+    box-shadow: 0 0 6px rgba(206, 40, 41, 0.3);
+}
+input[type="checkbox"]:checked {
+    background-color: #CE2829;
+    border-color: #CE2829;
+}
+input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #292929;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    background-color: white;
+    transition: all 0.2s ease;
+}
+input[type="radio"]:hover {
+    border-color: #CE2829;
+    box-shadow: 0 0 6px rgba(206, 40, 41, 0.3);
+}
+input[type="radio"]:checked {
+    background-color: #CE2829;
+    border-color: #CE2829;
+}
+input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
 @media (max-width: 900px) {
     .order-form-header-inner {
         flex-direction: column;

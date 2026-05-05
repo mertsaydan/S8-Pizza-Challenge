@@ -37,9 +37,31 @@ body {
     border: 2px solid white;
     border-radius: 10rem;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: pulse 2s infinite;
 }
+
 .button:hover {
     background-color: white;
     color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(253, 201, 19, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(253, 201, 19, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(253, 201, 19, 0);
+    }
 }
