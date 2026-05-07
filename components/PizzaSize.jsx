@@ -1,28 +1,34 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Input, FormGroup, Label, FormFeedback } from 'reactstrap';
+import './PizzaSize.css';
 
 export default function PizzaSize({ handleChange, size, errors }) {
-  return (<div>
+  return (
+  <>
+  <div>
     <legend className="pizza-card-form-size-legend">Boyut Seç <span>*</span></legend>
+    <div className="pizza-card-form-size-container">
     <FormGroup check className="pizza-card-form-size" >
       <Label check>
-        <Input type="radio" name="size" id="small" value="small" onChange={handleChange} checked={size === "small"} required invalid={!!errors.size} />{" "}
-        Küçük
+        <Input type="radio" name="size" id="small" value="S" onChange={handleChange} checked={size === "S"} required invalid={!!errors.size} />{" "}
+        <span className="circle" data-cy="size-small">S</span>
       </Label>
     </FormGroup>
     <FormGroup check className="pizza-card-form-size" >
       <Label check>
-        <Input type="radio" name="size" id="medium" value="medium" onChange={handleChange} checked={size === "medium"} required invalid={!!errors.size} />{" "}
-        Orta
+        <Input type="radio" name="size" id="medium" value="M" onChange={handleChange} checked={size === "M"} required invalid={!!errors.size} />{" "}
+        <span className="circle" data-cy="size-medium">M</span>
       </Label>
     </FormGroup>
     <FormGroup check className="pizza-card-form-size" >
       <Label check>
-        <Input type="radio" name="size" id="large" value="large" onChange={handleChange} checked={size === "large"} required invalid={!!errors.size} /> {" "}
-        Büyük
+        <Input type="radio" name="size" id="large" value="L" onChange={handleChange} checked={size === "L"} required invalid={!!errors.size} /> {" "}
+        <span className="circle" data-cy="size-large">L</span>
       </Label>
     </FormGroup>
+    </div>
     {errors.size && <FormFeedback className="d-block">{errors.size}</FormFeedback>}
   </div>
+  </>
   )
 }

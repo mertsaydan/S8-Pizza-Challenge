@@ -1,13 +1,14 @@
-import { Form, FormGroup, Label, Input} from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import './PizzaFormSubmit.css';
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
 let buttonDisabled = false;
-export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtras, 
+export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtras,
     name, orderNote, errors, setErrors, pizzas }) {
     const [count, setCount] = useState(1);
     const history = useHistory();
@@ -15,11 +16,11 @@ export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtra
     const calculateSelectionsTotal = () => {
         let total = 0;
 
-        if (size === "medium") total += 10;
-        else if (size === "large") total += 20;
-
+        if (size === "M") total += 10;
+        else if (size === "L") total += 20;
+        console.log("Size total:", total);
         if (dough === "thick") total += 5;
-
+        console.log("Dough total:", total);
         total += (selectedExtras?.length || 0) * 5;
 
         return total.toFixed(2);
@@ -37,12 +38,11 @@ export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtra
         e.preventDefault();
         if (count > 1) {
             setCount(count - 1);
-        } 
+        }
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-       
         const newErrors = {};
         if (!name || name.length < 3) {
             newErrors.name = "İsim en az 3 karakter olmalıdır.";
@@ -93,7 +93,7 @@ export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtra
         <div className="pizza-card-form-bottom">
             <div className="pizza-card-form-count">
                 <button className="pizza-card-form-count-button" onClick={handleDecrement}
-                disabled={isDecrementDisabled}>
+                    disabled={isDecrementDisabled}>
                     -
                 </button>
                 <span className="pizza-card-form-count-value">{count}</span>

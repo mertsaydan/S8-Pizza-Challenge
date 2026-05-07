@@ -23,7 +23,7 @@ describe('Pizza order form', () => {
     cy.intercept('POST', 'https://reqres.in/api/users', (req) => {
       expect(req.body).to.include({
         isim: 'Mert Saydan',
-        boyut: 'large',
+        boyut: 'L',
         özel: 'Sipariş Notum Sıcak gelsin',
         quantity: 1,
         totalPrice: '120.50'
@@ -35,7 +35,7 @@ describe('Pizza order form', () => {
           id: '539',
           createdAt: '2026-05-05T08:30:00.075Z',
           isim: 'Mert Saydan',
-          boyut: 'large',
+          boyut: 'L',
           malzemeler: ['Pepperoni', 'Soğan'],
           özel: 'Sipariş Notum Sıcak gelsin',
           quantity: 1,
@@ -45,7 +45,7 @@ describe('Pizza order form', () => {
     }).as('createOrder');
 
     cy.get('input[name="name"]').type('Mert Saydan');
-    cy.get('input#large').check();
+    cy.get('input#large').check({force: true});
     cy.get('select[name="dough"]').select('thick');
     cy.get('input[name="extra"]').check(['Pepperoni', 'Soğan']);
     cy.get('textarea[name="orderNote"]').type('Sipariş Notum Sıcak gelsin');

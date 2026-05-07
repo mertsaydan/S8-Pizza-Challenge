@@ -1,0 +1,21 @@
+.order-form-header {
+    background-color: #CE2829;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+ 
+}
+
+.order-form-header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.order-form-logo {
+    align-self: center;
+
+}

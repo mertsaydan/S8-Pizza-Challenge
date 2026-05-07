@@ -1,0 +1,43 @@
+.pizza-card-form-name {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.pizza-card-form-name label {
+    color: #292929;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.pizza-card-form-name label span {
+    color: #CE2829;
+}
+
+.pizza-card-form-name input {
+    width: 40%;
+}
+
+.pizza-card-form-OrderNote {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #292929;
+
+}
+
+.pizza-card-form-OrderNote-label {
+    color: #292929;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+@media (max-width: 700px) {
+    .pizza-card-form-name input {
+        width: 100%;
+    }
+}

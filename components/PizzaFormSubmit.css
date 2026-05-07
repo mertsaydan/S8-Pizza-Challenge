@@ -1,0 +1,100 @@
+.pizza-card-form-bottom {
+    display: flex;
+    gap: 5rem;
+    margin-top: 2rem;
+}
+
+.pizza-card-form-count {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    border: #a8a6a6 solid 1px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 8px;
+}
+
+.pizza-card-form-count-button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: #FDC913;
+    color: #292929;
+    font-size: 1.25rem;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.pizza-card-form-count-button:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
+.pizza-card-form-count-button:hover:not(:disabled) {
+    background-color: #f0c000;
+}
+
+.pizza-card-form-total-container {
+    border: #a8a6a6 solid 1px;
+}
+
+.pizza-card-form-total {
+    margin-top: 2rem;
+}
+
+.pizza-card-form-total-label {
+    color: #292929;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+}
+
+.pizza-card-form-total-extra {
+    color: #292929;
+    font-family: 'Barlow', sans-serif;
+    padding: 0 2rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pizza-card-form-total-price {
+    color: #CE2829;
+    font-family: 'Barlow', sans-serif;
+    padding: 0 2rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.pizza-card-form-submit-button {
+    border: none;
+    background-color: #FDC913;
+    color: #292929;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 0.75rem 9rem;
+    cursor: pointer;
+    width: cover;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.pizza-card-form-submit-button:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
+.pizza-card-form-submit-button:hover:not(:disabled) {
+    background-color: #f0c000;
+}
+
+@media (max-width: 700px) {
+    .pizza-card-form-bottom {
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}

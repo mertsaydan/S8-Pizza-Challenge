@@ -1,0 +1,13 @@
+.pizza-card-form-dough-legend {
+    color: #292929;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.pizza-card-form-dough-legend span {
+    color: #CE2829;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}

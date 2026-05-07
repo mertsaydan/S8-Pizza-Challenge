@@ -1,5 +1,6 @@
 import { FormGroup, Label, Input, FormFeedback } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './PizzaNotes.css';
 
 export default function PizzaNotes({ handleChange, errors }) {
     return (

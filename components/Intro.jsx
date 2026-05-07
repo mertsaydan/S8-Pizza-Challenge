@@ -1,6 +1,11 @@
 import './intro.css';
 import { useHistory } from 'react-router-dom';
-import logo from '../images/iteration-1-images/logo.svg';
+
+import Nav from './Nav';
+import Suggest from './Suggest';
+import Products from './Products';
+import Footer from './Footer';
+import Header from './Header';
 
 export default function Intro() {
   const history = useHistory();
@@ -8,11 +13,13 @@ export default function Intro() {
     history.push('/order-form');
   };
   return (
-    <header className="intro">
-      <img className="logo" src={logo} alt="Logo" />
-      <h1 className="title">KOD ACIKTIRIR <br />PİZZA, DOYURUR</h1>
-      <button className="button" onClick={handleClick}>Acıktım</button>
-    </header>
-
+    <>
+    <Header handleClick={handleClick} />
+    <Nav />
+    <Suggest handleClick={handleClick} />
+    <Nav />
+    <Products />
+    <Footer />
+    </>
   )
 }

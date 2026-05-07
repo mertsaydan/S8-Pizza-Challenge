@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Input, FormGroup, Label } from 'reactstrap';
-
+import './PizzaExtras.css';
 
 export default function PizzaExtras({ extras, handleChange, selectedExtras, errors }) {
     return (
@@ -22,7 +22,7 @@ export default function PizzaExtras({ extras, handleChange, selectedExtras, erro
                                 checked={selectedExtras?.includes(extra)}
                                 onChange={handleChange}
                             />{" "}
-                            {extra}
+                            <span className="form-check-label">{extra}</span>
                         </Label>
                     </FormGroup>
                 ))}

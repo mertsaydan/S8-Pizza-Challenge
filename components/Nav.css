@@ -1,0 +1,41 @@
+.menu-bar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: white;
+  color: #292929;
+  flex-wrap: wrap;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.menu-items:hover {
+  transform: scale(1.1);
+  color: #CE2829;
+  background-color: black;
+  color: white;
+  border-radius: 2rem;
+}
+
+.menu-items img {
+  width: 40px;
+  height: 40px;
+}
+
+.menu-items p {
+  font-family: "Barlow";
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: 500;
+}

@@ -1,67 +1,6 @@
-.intro {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    background-image: url('images/iteration-1-images/home-banner.png');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    padding: 0;
-    gap: 2rem;
-}
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-}
-
-.logo {
-    width: 40vw;
-    height: auto;
-    align-self: center;
-    margin-top: 4rem;
-    
-}
-.title {
-    color: white;
-    font-size: 3rem;
-    text-align: center;
-    font-family: 'Barlow', weight 100, sans-serif;
-}
-.button {
-    align-self: center;
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    color: black;
-    background-color: #FDC913;
-    border: 2px solid white;
-    border-radius: 10rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    animation: pulse 2s infinite;
-}
-
-.button:hover {
-    background-color: white;
-    color: black;
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-}
-
-.button:active {
-    transform: scale(0.95);
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(253, 201, 19, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 20px rgba(253, 201, 19, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(253, 201, 19, 0);
-    }
 }

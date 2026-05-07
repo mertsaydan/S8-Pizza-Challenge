@@ -5,6 +5,8 @@ import PizzaDough from './PizzaDough';
 import PizzaExtras from './PizzaExtras';
 import PizzaNotes from './PizzaNotes';
 import PizzaFormSubmit from './PizzaFormSubmit';
+import { Link } from 'react-router-dom';
+import './PizzaCard.css';
 
 
 export default function PizzaCard({ extras, pizzas, totalPrice, handleChange, size, dough, selectedExtras, name, orderNote, errors, setErrors }) {
@@ -14,6 +16,16 @@ export default function PizzaCard({ extras, pizzas, totalPrice, handleChange, si
                 <section className="pizza-card">
                     <div className="pizza-card-head">
                         <div>
+                            <img src="src/assets/pictures/form-banner.png" alt="Pizza Banner" className="pizza-card-image" />
+
+                            <div className="order-form-header-title">
+
+                                <p className="order-form-breadcrumb">
+                                    <Link to="/" className="breadcrumb-link">Anasayfa</Link>
+                                    <span>-</span>
+                                    <Link to="/order-form" className="breadcrumb-link active">Sipariş Oluştur</Link>
+                                </p>
+                            </div>
                             <h2 className="pizza-card-title">{pizzas[0].name}</h2>
 
                         </div>
@@ -33,7 +45,7 @@ export default function PizzaCard({ extras, pizzas, totalPrice, handleChange, si
                                 <PizzaSize handleChange={handleChange} size={size} errors={errors} />
                                 <PizzaDough handleChange={handleChange} dough={dough} errors={errors} />
                             </div>
-                        <PizzaExtras extras={extras} handleChange={handleChange} selectedExtras={selectedExtras} errors={errors} />
+                            <PizzaExtras extras={extras} handleChange={handleChange} selectedExtras={selectedExtras} errors={errors} />
                             <PizzaNotes handleChange={handleChange} errors={errors} />
                             <PizzaFormSubmit pizzas={pizzas} totalPrice={totalPrice} handleChange={handleChange} size={size} dough={dough} selectedExtras={selectedExtras} name={name} orderNote={orderNote} errors={errors} setErrors={setErrors} />
                         </Form>
