@@ -2,7 +2,6 @@
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
-
 }
 
 .pizza-card-form-checkbox-header h3 {
@@ -29,6 +28,7 @@
     font-weight: 600;
     margin-top: 2rem;
 }
+
 input[type="checkbox"] {
     width: 30px;
     height: 30px;
@@ -39,14 +39,17 @@ input[type="checkbox"] {
     background-color: white;
     transition: all 0.2s ease;
 }
+
 input[type="checkbox"]:hover {
     border-color: #CE2829;
     box-shadow: 0 0 6px rgba(206, 40, 41, 0.3);
 }
+
 input[type="checkbox"]:checked {
     background-color: #CE2829;
     border-color: #CE2829;
 }
+
 input[type="checkbox"]:checked::after {
     content: '✓';
     position: absolute;
@@ -57,6 +60,7 @@ input[type="checkbox"]:checked::after {
     font-weight: bold;
     font-size: 14px;
 }
+
 .form-check-label {
     margin-left: 0.5rem;
     cursor: pointer;

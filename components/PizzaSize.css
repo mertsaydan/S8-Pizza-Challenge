@@ -1,25 +1,27 @@
 .pizza-card-form-size-container {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
+
 .pizza-card-form-size-legend {
-    color: #292929;
-    font-family: 'Barlow', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
+  color: #292929;
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .pizza-card-form-size-legend span {
-    color: #CE2829;
-    font-family: 'Barlow', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
+  color: #CE2829;
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
+
 input[type="radio"] {
-    display: none;
+  display: none;
 }
+
 .circle {
   display: flex;
   align-items: center;
@@ -27,25 +29,26 @@ input[type="radio"] {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #f8f6f2; 
+  background-color: #f8f6f2;
   color: #555;
   font-family: sans-serif;
   font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .circle:hover {
   background-color: #eee;
 }
 
 
-input[type="radio"]:checked + .circle {
-  background-color: #fdf0d5; 
+input[type="radio"]:checked+.circle {
+  background-color: #fdf0d5;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 
-input.is-invalid + .circle {
+input.is-invalid+.circle {
   border: 2px solid #CE2829;
 }

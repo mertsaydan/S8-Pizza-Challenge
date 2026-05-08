@@ -3,20 +3,17 @@ import './OrderForm.css';
 import logo from '../images/iteration-1-images/logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Input, FormGroup, Label } from 'reactstrap';
-import Header from './PizzaHeader';
+import PizzaHeader from './PizzaHeader';
 import PizzaCard from './PizzaCard';
 import { useState } from 'react';
-import Footer from './Footer';
-
-
 
 const extras = ["Pepperoni", "Tavuk Izgara", "Mısır", "Sarımsak", "Ananas",
-    "Sosis", "Soğan", "Sucuk", "Biber", "Kabak", "Kanada Jambonu", "Domates", 
+    "Sosis", "Soğan", "Sucuk", "Biber", "Kabak", "Kanada Jambonu", "Domates",
     "Jalapeño", "Zeytin"]
 const pizzas = [
-    {name: "Position Absolute Acı Pizza", price: "85.50", rating: "4.9", ratingCount: "200"}
+    { name: "Position Absolute Acı Pizza", price: "85.50", rating: "4.9", ratingCount: "200" }
 ]
-export default function OrderForm() {
+export default function OrderForm({ setLastOrder }) {
     const [size, setSize] = useState("");
     const [dough, setDough] = useState("");
     const [selectedExtras, setSelectedExtras] = useState([]);
@@ -24,23 +21,23 @@ export default function OrderForm() {
     const [orderNote, setOrderNote] = useState("");
     const [errors, setErrors] = useState({});
     const basePrice = parseFloat(pizzas[0].price);
-    
+
     const calculateTotalPrice = (sizeVal, doughVal, extrasArr) => {
         let total = basePrice;
-        
+
         if (sizeVal === "M") total += 10;
         else if (sizeVal === "L") total += 20;
-        
+
         if (doughVal === "thick") total += 5;
-            
+
         total += extrasArr.length * 5;
-        
+
         return total.toFixed(2);
     };
-    
+
     const handleChange = (event) => {
         const { name, value, checked } = event.target;
-        
+
         if (name === "size") {
             setSize(value);
             setErrors(prev => ({ ...prev, size: undefined }));
@@ -66,15 +63,16 @@ export default function OrderForm() {
             setOrderNote(value);
         }
     };
-    
+
     const totalPrice = calculateTotalPrice(size, dough, selectedExtras);
-    
+
     return (
         <>
-            <Header />
-            <PizzaCard extras={extras} pizzas={pizzas} totalPrice={totalPrice} handleChange={handleChange} 
-            size={size} dough={dough} selectedExtras={selectedExtras} name={name} orderNote={orderNote} errors={errors} setErrors={setErrors} />
-            <Footer />
+            <PizzaHeader />
+            <PizzaCard extras={extras} pizzas={pizzas} totalPrice={totalPrice} handleChange={handleChange}
+                size={size} dough={dough} selectedExtras={selectedExtras} name={name} orderNote={orderNote} 
+                errors={errors} setErrors={setErrors} setLastOrder={setLastOrder} />
+            
         </>
     )
 }

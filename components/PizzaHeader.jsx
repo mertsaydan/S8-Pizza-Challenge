@@ -8,7 +8,7 @@ export default function Header() {
     <header className="order-form-header">
       <div className="order-form-header-inner">
         <img src={logo} alt="Logo" className="order-form-logo" />
-             </div>
+      </div>
     </header>
   )
 }

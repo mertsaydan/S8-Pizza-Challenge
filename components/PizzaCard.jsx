@@ -8,8 +8,7 @@ import PizzaFormSubmit from './PizzaFormSubmit';
 import { Link } from 'react-router-dom';
 import './PizzaCard.css';
 
-
-export default function PizzaCard({ extras, pizzas, totalPrice, handleChange, size, dough, selectedExtras, name, orderNote, errors, setErrors }) {
+export default function PizzaCard({ extras, pizzas, totalPrice, handleChange, size, dough, selectedExtras, name, orderNote, errors, setErrors, setLastOrder }) {
     return (
         <>
             <main className="order-form-main">
@@ -47,7 +46,7 @@ export default function PizzaCard({ extras, pizzas, totalPrice, handleChange, si
                             </div>
                             <PizzaExtras extras={extras} handleChange={handleChange} selectedExtras={selectedExtras} errors={errors} />
                             <PizzaNotes handleChange={handleChange} errors={errors} />
-                            <PizzaFormSubmit pizzas={pizzas} totalPrice={totalPrice} handleChange={handleChange} size={size} dough={dough} selectedExtras={selectedExtras} name={name} orderNote={orderNote} errors={errors} setErrors={setErrors} />
+                            <PizzaFormSubmit pizzas={pizzas} totalPrice={totalPrice} handleChange={handleChange} size={size} dough={dough} selectedExtras={selectedExtras} name={name} orderNote={orderNote} errors={errors} setErrors={setErrors} setLastOrder={setLastOrder} />
                         </Form>
                     </div>
                 </section>

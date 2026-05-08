@@ -9,7 +9,7 @@ const apiKey = import.meta.env.VITE_API_KEY;
 
 let buttonDisabled = false;
 export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtras,
-    name, orderNote, errors, setErrors, pizzas }) {
+    name, orderNote, errors, setErrors, pizzas, setLastOrder }) {
     const [count, setCount] = useState(1);
     const history = useHistory();
 
@@ -18,15 +18,11 @@ export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtra
 
         if (size === "M") total += 10;
         else if (size === "L") total += 20;
-        console.log("Size total:", total);
         if (dough === "thick") total += 5;
-        console.log("Dough total:", total);
         total += (selectedExtras?.length || 0) * 5;
-
         return total.toFixed(2);
     };
-
-    const isSubmitDisabled = !name || name.length < 3 || selectedExtras.length > 10 || !size || !dough;
+    
     const isDecrementDisabled = count <= 1;
 
     const handleIncrement = (e) => {
@@ -44,22 +40,27 @@ export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtra
         e.preventDefault();
 
         const newErrors = {};
+        let isValid = true;
         if (!name || name.length < 3) {
             newErrors.name = "İsim en az 3 karakter olmalıdır.";
+            isValid = false;
         }
         if (selectedExtras.length > 10) {
             newErrors.extras = "En fazla 10 ek malzeme seçebilirsiniz.";
+            isValid = false;
         }
         if (!size) {
             newErrors.size = "Boyut seçmelisiniz.";
+            isValid = false;
         }
         if (!dough) {
             newErrors.dough = "Hamur seçmelisiniz.";
+            isValid = false;
         }
 
         setErrors(newErrors);
 
-        if (Object.keys(newErrors).length > 0) {
+        if (!isValid) {
             return;
         }
 
@@ -80,9 +81,11 @@ export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtra
                     'x-api-key': apiKey
                 }
             });
+            setLastOrder(payload);
             console.log('Order submitted successfully:', response.data);
             console.log('Sent payload:', payload);
-            history.push('/order-success', { order: payload });
+            history.push('/order-success');
+            
         } catch (error) {
             console.error('Error submitting order:', error);
         }
@@ -109,7 +112,7 @@ export default function PizzaFormSubmit({ totalPrice, size, dough, selectedExtra
                         <p>Toplam </p><span>{finalTotal} ₺</span>
                     </div>
                 </div>
-                <button className="pizza-card-form-submit-button" onClick={handleSubmit} disabled={isSubmitDisabled}>
+                <button className="pizza-card-form-submit-button" onClick={handleSubmit}>
                     Siparişi Tamamla
                 </button>
             </div>

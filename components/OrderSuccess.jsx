@@ -1,12 +1,8 @@
 import logo from '../images/iteration-1-images/logo.svg';
-import { useLocation } from 'react-router-dom';
 import './OrderSuccess.css';
-import Footer from './Footer';
 
-export default function OrderSuccess() {
-    const location = useLocation();
-    const order = location.state?.order;
-
+export default function OrderSuccess({order}) {
+   
     return (
         <>
             <div className="order-success">
@@ -27,7 +23,7 @@ export default function OrderSuccess() {
                     <p>Sipariş özeti yüklenemedi. Lütfen formu yeniden doldurup göndermeyi deneyin.</p>
                 )}
             </div>
-            <Footer />
+            
         </>
 
     )
