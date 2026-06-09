@@ -1,6 +1,6 @@
 import './App.css'
 import { Route, Switch } from 'react-router-dom'
-import Intro from '../components/intro'
+import Intro from '../components/Intro'
 import OrderForm from '../components/OrderForm'
 import OrderSuccess from '../components/OrderSuccess'
 import { useState } from 'react';
