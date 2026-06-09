@@ -4,7 +4,7 @@ export default function Products() {
     <section className="product-list">
       <div className="product">
         <div className="product-image">
-          <img src="src/assets/pictures/food-1.png" />
+          <img src="/pictures/food-1.png" />
         </div>
         <div className="product-info">
           <h4>Terminal Pizza</h4>
@@ -17,7 +17,7 @@ export default function Products() {
       </div>
       <div className="product">
         <div className="product-image">
-          <img src="src/assets/pictures/food-2.png" />
+          <img src="/pictures/food-2.png" />
         </div>
         <div className="product-info">
           <h4>Position Absolute Acı Pizza</h4>
@@ -30,7 +30,7 @@ export default function Products() {
       </div>
       <div className="product">
         <div className="product-image">
-          <img src="src/assets/pictures/food-3.png" />
+          <img src="/pictures/food-3.png" />
         </div>
         <div className="product-info">
           <h4>useEffect Tavuklu Burger</h4>

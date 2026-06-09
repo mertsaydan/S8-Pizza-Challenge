@@ -1,4 +1,3 @@
-import logo from '../images/iteration-1-images/logo.svg';
 import './OrderSuccess.css';
 
 export default function OrderSuccess({order}) {
@@ -6,7 +5,7 @@ export default function OrderSuccess({order}) {
     return (
         <>
             <div className="order-success">
-                <img src={logo} alt="Logo" className="order-form-logo" />
+                <img src="/logo.svg" alt="Logo" className="order-form-logo" />
                 <p className="order-success-subtitle">lezzetin yolda</p>
                 <h1 className="order-success-title">Tebrikler! <br />Siparişiniz Alındı!</h1>
                 {order ? (

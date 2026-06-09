@@ -5,19 +5,19 @@ export default function Footer() {
       <div className="footer-main">
         <div className="contact">
           <div className="footer-logo">
-            <img src="src/assets/footer/logo-footer.svg" />
+            <img src="/footer/logo-footer.svg" />
           </div>
           <div className="address">
             <div className="location">
-              <img src="src/assets/footer/icons/icon-1.png" />
+              <img src="/footer/icons/icon-1.png" />
               <h6>341 Londonderry Road,<br /> İstanbul Türkiye</h6>
             </div>
             <div className="mail">
-              <img src="src/assets/footer/icons/icon-2.png" />
+              <img src="/footer/icons/icon-2.png" />
               <h6>aciktim@teknolojikyemekler.com</h6>
             </div>
             <div className="phone">
-              <img src="src/assets/footer/icons/icon-3.png" />
+              <img src="/footer/icons/icon-3.png" />
               <h6>+90 216 123 45 67</h6>
             </div>
           </div>
@@ -38,12 +38,12 @@ export default function Footer() {
         <div className="instagram">
           <h5>Instagram</h5>
           <div className="insta-pictures">
-            <img src="src/assets/footer/insta/li-0.png" />
-            <img src="src/assets/footer/insta/li-1.png" />
-            <img src="src/assets/footer/insta/li-2.png" />
-            <img src="src/assets/footer/insta/li-3.png" />
-            <img src="src/assets/footer/insta/li-4.png" />
-            <img src="src/assets/footer/insta/li-5.png" />
+            <img src="/footer/insta/li-0.png" />
+            <img src="/footer/insta/li-1.png" />
+            <img src="/footer/insta/li-2.png" />
+            <img src="/footer/insta/li-3.png" />
+            <img src="/footer/insta/li-4.png" />
+            <img src="/footer/insta/li-5.png" />
           </div>
         </div>
       </div>

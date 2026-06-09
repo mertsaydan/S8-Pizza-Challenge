@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import './OrderForm.css';
-import logo from '../images/iteration-1-images/logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Input, FormGroup, Label } from 'reactstrap';
 import PizzaHeader from './PizzaHeader';

@@ -11,7 +11,7 @@
 .left-bar {
   display: flex;
   flex-direction: column;
-  background-image: url(src/assets/cta/kart-1.png);
+  background-image: url('/cta/kart-1.png');
   background-size: cover;
   background-position: center;
   min-height: 350px;
@@ -35,11 +35,11 @@
 }
 
 .rb-row1 {
-  background-image: url(src/assets/cta/kart-2.png);
+  background-image: url('/cta/kart-2.png');
 }
 
 .rb-row2 {
-  background-image: url(src/assets/cta/kart-3.png);
+  background-image: url('/cta/kart-3.png');
 }
 
 .left-bar h2,

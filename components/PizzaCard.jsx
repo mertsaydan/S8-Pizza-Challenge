@@ -15,7 +15,7 @@ export default function PizzaCard({ extras, pizzas, totalPrice, handleChange, si
                 <section className="pizza-card">
                     <div className="pizza-card-head">
                         <div>
-                            <img src="src/assets/pictures/form-banner.png" alt="Pizza Banner" className="pizza-card-image" />
+                            <img src="/pictures/form-banner.png" alt="Pizza Banner" className="pizza-card-image" />
 
                             <div className="order-form-header-title">
 
