@@ -1,9 +1,9 @@
 import './intro.css';
 import { useHistory } from 'react-router-dom';
-import Nav from './Nav';
-import Suggest from './Suggest';
-import Products from './Products';
-import Header from './Header';
+import Nav from './Nav.jsx';
+import Suggest from './Suggest.jsx';
+import Products from './Products.jsx';
+import Header from './Header.jsx';
 
 export default function Intro() {
   const history = useHistory();
